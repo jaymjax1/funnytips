@@ -1,0 +1,52 @@
+  <!DOCTYPE html>
+  <html ng-app="Calculator">
+    <head>
+      <title>Tip Calculator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+      <link href="css/style.css?v=1" rel="stylesheet" media="screen">
+      <script src="js/jquery-2.1.3.min.js"></script>
+      <script src="js/angular.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/tip.js"></script>
+    </head>
+    <body>
+
+  <div class="container text-center">
+
+        <div class="jumbotron" ng-controller="SloganController as slogan">
+            <h1>Tip Calculator</h1>
+            <p>{{slogan.phrase}}</p>
+        </div>
+
+
+        <div class = "panel panel-info" ng-init="tip=0; total=0; people=1">
+          
+                  <div class ="panel-heading">
+                    <h3 class="panel-title"> Enter Values</h3>
+                  </div>
+
+                  <div class= "panel-body">
+                    <div class="row">
+                      <div class= "col-xs-12">
+                              <h5>Check Amount</h5> <p> <input class="input-lg" type="number" ng-model="total"></p> 
+
+                              <h5>Tip%</h5> <p> <input class="input-lg" type="number" ng-model="tip"></p> 
+                 
+                              <h5>People</h5> <p> <input class="input-lg" type="number" ng-model="people"></p>
+                      </div> 
+                    </div>
+                  </div>
+
+      
+                  <div><span> <em>Tip:</em> <em> <strong> {{ (total * (tip/100))/people| currency }}</strong> </em> </span></div>
+                  <span> <em>Total per person:</em> <em> <strong> {{ (total+(total * (tip/100)))/people| currency }} <strong> </em> </span>
+
+        </div>
+    </div>
+
+
+    </body>
+  </html>
